@@ -52,7 +52,7 @@ class BonusCrawler:
             self.products[name] = product
     
     except Exception as e:
-      print ('An error occured: {0}'.format(e))
+      raise e
     
     return self.products
 
