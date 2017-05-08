@@ -1,8 +1,10 @@
 
 var addItem = document.querySelector(".addItem");
-var submitItem = document.querySelector(".submitItem");
 addItem.addEventListener("click", insertItem);
+
+var submitItem = document.querySelector(".submitItem");
 submitItem.focus();
+
 var itemId = 0;
 
 // add a new list item in list with button of delete
@@ -15,18 +17,27 @@ function insertItem() {
     
     // add a ordered ID to the created new list item
     newEle.setAttribute("id", "item" + itemId);
-    itemId++;
 
     // add a delete button to the new list item
     var newButton = document.createElement("button");
     var buttonText = document.createTextNode("Delete this item");
     newButton.appendChild(buttonText);
 
-    // add a class to the new created button and append this button to created list item
+    // add a class and an id to the new created
     newButton.setAttribute("class", "deleteItem");
+    newButton.setAttribute("id", "bt" + itemId);
+    newButton.addEventListener("click", removeItem(), true);
+    
+    // append created button to the list item
     newEle.appendChild(newButton);
     
     // add the created list item to the list
     var paras = document.getElementById("l1");
     paras.appendChild(newEle);
+
+    itemId++;
+}
+
+function removeItem() {
+    alert();
 }
