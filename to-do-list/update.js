@@ -26,7 +26,8 @@ function insertItem() {
     // add a class and an id to the new created
     newButton.setAttribute("class", "deleteItem");
     newButton.setAttribute("id", "bt" + itemId);
-    newButton.addEventListener("click", removeItem(), true);
+    var currId = itemId;
+    newButton.addEventListener("click", function () { removeItem(currId); }, true);
     
     // append created button to the list item
     newEle.appendChild(newButton);
@@ -38,6 +39,7 @@ function insertItem() {
     itemId++;
 }
 
-function removeItem() {
-    alert();
+function removeItem(currId) {
+    var ele = doucument.getElementById("item" + currId);
+    ele.parentElement.removeChild(ele);
 }
