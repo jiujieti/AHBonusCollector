@@ -40,6 +40,7 @@ function insertItem() {
 }
 
 function removeItem(currId) {
-    var ele = doucument.getElementById("item" + currId);
-    ele.parentElement.removeChild(ele);
+    // remove the list item
+    var ele = document.getElementById("item" + currId);
+    ele.remove();
 }
