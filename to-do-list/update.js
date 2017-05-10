@@ -1,4 +1,3 @@
-
 var addItem = document.querySelector(".addItem");
 addItem.addEventListener("click", insertItem);
 
@@ -36,7 +35,12 @@ function insertItem() {
     var paras = document.getElementById("l1");
     paras.appendChild(newEle);
 
+    // id number increases
     itemId++;
+  
+    // clear text in input field 
+    submitItem.value = '';
+    submitItem.focus(); 
 }
 
 function removeItem(currId) {
