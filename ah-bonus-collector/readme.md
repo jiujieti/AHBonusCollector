@@ -13,5 +13,5 @@ This is a crawler to gather all bonus information about one of the most famous D
 ## Features to be added
 
 1. Send the information to users by email;
-2. Use database to store information;
+2. Use database to store information and compare;
 3. Set the running schedule for this crawler, make it run time by time.
