@@ -10,19 +10,19 @@ class BonusCrawler:
     This AH bonus crawler extracts the information of products on sale from AH website.  
     """
 
-    def __init__(self, first_url, webdriver_path, products=None):
+    def __init__(self, first_url, webdriver_path):
         self.urls = []
         self.urls_all = []
         self.urls.append(first_url)
         self.urls_all.append(first_url)
         self.driver = webdriver.Chrome(webdriver_path)
-        self.products = products
+        self.products = {}
 
     # get product info at the current page
     def getprodinfo(self, url):
         try:
             self.driver.get(url)
-            WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH, '//body/div/div/div/div/article[last()]')))      
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, '//div/div/div/div/article[last()]')))
       
             # get html
             element = self.driver.find_element_by_xpath('//*')
@@ -32,7 +32,7 @@ class BonusCrawler:
             parser = etree.HTMLParser()
             self.html_tree = etree.parse(StringIO(html), parser)
             li = self.html_tree.xpath('//div/div/div/div/article')
-      
+            
             for prod in li:
                 p = prod.find('./a')
                 if p is not None:
@@ -53,7 +53,7 @@ class BonusCrawler:
     
         except Exception as e:
             print (e)
-    
+       
         return self.products
 
     # keep crawling sub-pages
