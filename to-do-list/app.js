@@ -1,0 +1,10 @@
+// load HTTP module
+var http = require("http");
+
+// create HTTP server and listen on port 8000
+http.createServer(function(request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n');
+}).listen(8000);
+
+console.log('server running at http://127.0.0.1:8000');
