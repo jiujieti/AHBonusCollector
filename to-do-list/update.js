@@ -26,7 +26,7 @@ function insertItem() {
     newButton.setAttribute("class", "deleteItem");
     newButton.setAttribute("id", "bt" + itemId);
     var currId = itemId;
-    newButton.addEventListener("click", function () { removeItem(currId); }, true);
+    newButton.addEventListener("click", function () { removeItem(currId); });
     
     // append created button to the list item
     newEle.appendChild(newButton);
